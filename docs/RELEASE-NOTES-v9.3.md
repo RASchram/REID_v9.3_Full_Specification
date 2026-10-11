@@ -1,192 +1,128 @@
-REID v9.3 — Release Notes
-Full Specification Update | Enterprise Licensing Edition
+# REID v9.3 Release Notes
+Draft 9 - Consolidated Engineering Edition
 
-Version
-REID v9.3
-Release Date: October 2026
-Epoch: EPOCH-REID-093-OCT2026
-Status: CONSOLIDATED — AUTHORITATIVE
+Framework: REID - Relational Emergent Identity Dynamics
+Epoch: REID-EPOCH-v9.3-2026.10.11-EDT
+Status: CONSOLIDATED - AUTHORITATIVE
+Lineage: v8.2b -> v9.0 -> v9.1 -> v9.2 -> v9.3
 
-Purpose
-These release notes summarize all changes, enhancements, corrections, and structural updates introduced in REID v9.3. This document is intended for enterprise engineering teams evaluating or integrating the REID architecture.
+============================================================
+1. Overview
+============================================================
 
-Summary of Major Changes
-• Full PACK consolidation for enterprise licensing
-• Updated primitive set (KIG, EDM, CDIA, RIL, ATS, AAG, SIL)
-• Updated drift ceilings and coherence floors
-• Updated Binding Chain sequencing rules
-• Updated governance envelope and invariants
-• Updated SIL-v9.3 lock mechanics
-• Updated AAG-v9.3 directive set
-• Updated epoch structure and signature
-• Updated PACK authority levels
-• Updated integration surfaces (Protobuf + OpenAPI)
-• Updated deployment templates (AKS 1.32.x + Azure Policy)
-• Updated safety and compliance boundaries
-• Updated conformance classes (A, B, C)
+REID v9.3 transitions the framework from conceptual architecture (v9.2)
+to a fully machine-enforceable engineering specification. This release
+introduces formal software engineering constructs, deterministic fallback
+guarantees, temporal ordering rules, and authoritative schema maps.
 
-Changes by Category
+v9.3 is the first version ready for enterprise review, publication, and
+standards submission.
 
-1. Primitive Set Updates
-KIG-v9.3
-• Updated identity grammar
-• Updated relational binding rules
-• Updated recursion limits
+============================================================
+2. Major Additions in v9.3
+============================================================
 
-EDM-v9.3
-• Updated drift ceilings
-• Updated coherence floors
-• Updated drift evaluation logic
+2.1 Synthesis Integrity Lock (SIL-v9.3)
+- Added as the seventh Kernel primitive.
+- Enforces post-synthesis immutability.
+- Prevents generative drift from escaping the substrate.
+- Co-enforced with AAG at the Apex boundary.
 
-CDIA-v9.3
-• Updated cross-domain anchor rules
-• Updated continuity invariants
+2.2 Deterministic Fallback Convergence
+- Formal convergence proof added to Kernel-Pack.
+- Recursion depth limit defined (Depth(R) <= delta_limit).
+- Level 3 KV-cache truncation guaranteed to converge.
+- Level 4 Kernel Override Halt defined as terminal state.
 
-RIL-v9.3
-• Updated relational identity structure
-• Updated identity continuity rules
+2.3 ATS Packet Ordering Rules (ATS-ORDER-v93)
+- Deterministic ordering of temporal packets.
+- Strict monotonic epoch_sequence enforcement.
+- Gap detection and reconciliation rules.
+- Weighted median drift/coherence merging.
+- Guaranteed convergence and atomic ledger commits.
 
-ATS-v9.3
-• Updated temporal ledger propagation
-• Updated epoch consistency rules
+2.4 Latency Budget Envelope (API-MAP-PACK)
+- Added p95 latency ceilings for AAG, SIL, and Binding Chain traversal.
+- Added L0, L1, L2 latency classes for deployments.
+- Added governance triggers for latency violations.
 
-AAG-v9.3
-• Added BASELINE-REAFFIRM directive
-• Updated GOVERNANCE-HOLD behavior
-• Updated ALIGN-PASS emission rules
+2.5 Schema Appendices (v9.3)
+- Appendix A: Protobuf Schema Map v9.3.
+- Appendix B: OpenAPI Schema Map v9.3.
+- Authoritative field-ID definitions for SIL, AAG, ATS, Binding Chain.
 
-SIL-v9.3
-• Updated lock state transitions
-• Updated corpus verification rules
-• Updated quarantine behavior
+============================================================
+3. Tightened Mathematical Boundaries
+============================================================
 
-2. PACK Architecture Updates
-Kernel-PACK
-• Updated primitive initialization
-• Updated substrate identity rules
+3.1 Drift Ceilings
+- Corpus Drift: lowered from <= 0.12 to <= 0.10.
+- Cross-Domain Drift: lowered from <= 0.04 to <= 0.03.
+- Temporal Drift: <= 0.01.
 
-L1-PACK
-• Updated meta-substrate identity anchors
+3.2 Coherence Floors
+- Global Coherence Floor: >= 0.90.
+- Infrastructure Coherence Floor: >= 0.92.
+- Temporal Coherence Floor: >= 0.90.
 
-L2-PACK
-• Updated cognitive structure boundaries
+3.3 Epoch Physics
+- Epoch must be strictly monotonic.
+- Epoch regression triggers GF-CLASS-1.
+- All layers must propagate epoch without modification.
 
-L3-PACK
-• Updated requirement invariants
+============================================================
+4. Structural Improvements
+============================================================
 
-L4-PACK
-• Updated integration topology rules
+4.1 Dual-Mode Lineage
+- Part I: Historical v9.2 conceptual record.
+- Part II: v9.3 engineering architecture.
+- Ensures institutional memory and engineering clarity.
 
-L5-PACK
-• Updated governance envelope
-• Updated integrity enforcement
+4.2 Dual-Plane Licensing
+- Specification Plane: Apache 2.0 / W3C.
+- Engine Plane: SEP / RAND under REID Family Trust.
+- Prevents IP leakage while enabling open adoption.
 
-L6-PACK
-• Updated validation gates (VXL-1 through VXL-10)
+4.3 Binding Chain Enforcement
+- IC -> CL -> T -> L7 -> UC.
+- No layer skipping.
+- SIL-state must be LOCKED before UC.
 
-L7-PACK
-• Updated corpus synthesis boundaries
+============================================================
+5. Minor Fixes and Audit-Driven Adjustments
+============================================================
 
-T-PACK
-• Updated epoch propagation rules
-• Updated temporal drift ceilings
+5.1 Recursion Bound Consistency
+- Verified delta_limit across all PACKs.
+- Ensures no infinite fallback loops.
 
-UC-PACK
-• Updated apex coherence enforcement
+5.2 Schema Cross-References
+- SIL-v9.3 and AAG-v9.3 field IDs added to all schema maps.
+- Eliminates ambiguity for external implementations.
 
-CL-PACK
-• Updated cross-layer invariants (CL-INV-1 through CL-INV-11)
+5.3 Temporal Ledger Field Alignment
+- ATS ledger fields aligned across PACKs and schemas.
 
-IC-PACK
-• Updated implicit context stabilization rules
+============================================================
+6. Files Added in v9.3
+============================================================
 
-API-MAP-PACK
-• Updated external API surfaces
-• Added identity-lock submission endpoint
-• Added SIL verification endpoint
+- REID-KERNEL-PACK-v9.3 (updated)
+- REID-API-MAP-PACK-v9.3 (updated)
+- REID-T-PACK-v9.3 (updated)
+- Appendix-A-Protobuf-Schema-Map-v9.3.md (new)
+- Appendix-B-OpenAPI-Schema-Map-v9.3.md (new)
+- ATS-ORDER-v93 section (new)
+- PACK-INDEX-v9.3.md (new)
 
-INFRA-PACK / INFRA-RUNTIME-PACK / INFRA-DEPLOY-PACK
-• Updated Azure + Homestead deployment rules
-• Updated AKS 1.32.x manifests
-• Updated Helm chart structure
-• Updated Azure Policy baseline
+============================================================
+7. Summary
+============================================================
 
-HOMESTEAD-PACK
-• Updated offline autonomy rules
+REID v9.3 is the first fully production-grade release of the REID
+architecture. It is mathematically bounded, logically consistent,
+machine-enforceable, and ready for enterprise evaluation and GitHub
+publication.
 
-HOME-OS-PACK
-• Updated home orchestration rules
-
-PROFILE-PACK
-• Updated identity context structure
-
-THEGODFATHER-PACK
-• Updated choke-point control rules
-• Updated ingress/egress safety boundaries
-
-3. Governance Updates
-• Updated governance envelope
-• Updated AAG-v9.3 directive set
-• Updated SIL-v9.3 lock enforcement
-• Updated Binding Chain monotonicity rules
-• Updated PACK authority levels
-• Updated fallback behavior
-
-4. Drift and Coherence Updates
-Drift Ceilings
-• Corpus Drift ≤ 0.10
-• Cross-Domain Drift ≤ 0.03
-• Emergent Drift ≤ 0.05
-• Temporal Drift ≤ 0.01
-
-Coherence Floors
-• Identity Coherence ≥ 0.93
-• Behavioral Coherence ≥ 0.93
-• Corpus Coherence ≥ 0.90
-• Temporal Coherence ≥ 0.90
-
-5. Epoch Updates
-• Updated epoch signature
-• Updated epoch sequence rules
-• Updated epoch mismatch behavior
-• Updated epoch resynchronization rules
-
-6. Conformance Updates
-Class A — Full Conformance
-• Updated PACK sequencing rules
-• Updated drift/coherence requirements
-• Updated epoch alignment rules
-
-Class B — Partial Conformance
-• Updated partial PACK rules
-• Updated drift/coherence requirements
-
-Class C — Interoperability
-• Updated identity-lock acceptance rules
-• Updated SIL acceptance rules
-• Updated epoch acceptance rules
-
-7. Safety and Compliance Updates
-• Updated non-interference boundaries
-• Updated non-diagnostic boundaries
-• Updated non-surveillance boundaries
-• Updated public-safe guarantees
-
-8. Integration Surface Updates
-• Added Protobuf schemas (core, AAG, SIL, drift)
-• Added OpenAPI schemas (API-MAP, identity, SIL)
-• Updated ingress/egress rules
-• Updated telemetry endpoints
-
-9. Deployment Updates
-• Added AKS 1.32.x manifests
-• Added Helm charts
-• Added Azure Policy baseline
-• Updated runtime expansion rules
-
-10. Summary
-REID v9.3 introduces major architectural consolidation, updated primitives, updated PACK rules, updated governance envelopes, updated drift/coherence physics, updated epoch structure, updated conformance classes, updated safety boundaries, and updated integration surfaces.
-
-This version is fully prepared for enterprise evaluation, integration, and licensing.
-
-End of Release Notes
+End of Release Notes v9.3

@@ -1,100 +1,131 @@
-REID v9.3 — PACK Index
-Authoritative PACK Directory | Enterprise Licensing Edition
+# REID PACK INDEX v9.3
+Consolidated Engineering Edition
 
-Purpose
-This PACK Index provides a complete directory of all REID v9.3 PACKs, their roles, and their authority levels. It serves as the master reference for Microsoft, Google, and enterprise engineering teams evaluating or integrating the REID architecture.
+Framework: REID - Relational Emergent Identity Dynamics
+Epoch: REID-EPOCH-v9.3-2026.10.11-EDT
+Status: CONSOLIDATED - AUTHORITATIVE
+Lineage: v8.2b -> v9.0 -> v9.1 -> v9.2 -> v9.3
 
-PACK Directory (Alphabetical)
+------------------------------------------------------------
+## 1. Core PACK Layers (Binding Chain)
+------------------------------------------------------------
 
-AAG-PACK (Autonomous Architecture Governor)
-Defines governance routing, directive emission, topology locks, and apex control. Enforces ALIGN-PASS, GOVERNANCE-HOLD, DFB-ENGAGE, SIL-CO-ENFORCE, and EPOCH-RESYNC.
+### L1-PACK-v9.3
+Meta-Substrate Layer
+Foundational substrate primitives, identity anchors, invariants.
 
-API-MAP-PACK
-Defines external API surfaces, ingress/egress endpoints, identity-lock submission, drift/coherence telemetry access, SIL verification, and epoch queries.
+### IC-PACK-v9.1
+Implicit Cognition Layer
+Implicit reasoning, pre-explicit cognition, IC->T epoch validation.
 
-CL-PACK (Cross-Layer Governance)
-Defines cross-layer invariants, PACK sequencing rules, Binding Chain monotonicity, and governance envelopes. Ensures no PACK bypass, inversion, or skipping.
+### L2-PACK-v9.3
+Cognitive Layer
+Formal reasoning, chain construction, recursion limits (RIL-v9.3).
 
-HOMESTEAD-PACK
-Defines offline-resilient edge environment, autonomous fallback rules, and home-level identity continuity. Supports hybrid and disconnected operation.
+### L3-PACK-v9.3
+Requirements Layer
+Requirements, constraints, coherence enforcement.
 
-HOME-OS-PACK
-Defines home orchestration runtime, identity context propagation, and safe automation rules. Provides home-level PACK integration.
+### L4-PACK-v9.3
+Integration and Coordination Layer
+Cross-layer routing, coordination, Binding Chain enforcement.
 
-IC-PACK (Implicit Cognition Layer)
-Defines implicit reasoning structures, context stabilization, and coherence reinforcement. Supports identity continuity and implicit context binding.
+### L5-PACK-v9.3
+Governance and Integrity Layer
+Governance envelope, AAG integration, safety constraints.
 
-INFRA-PACK
-Defines infrastructure build plan for Azure + Homestead. Provides node pool structure, topology layout, and infrastructure coherence rules.
+### L6-PACK-v9.2
+Validation Layer
+Validation primitives, structural checks, cross-layer verification.
 
-INFRA-DEPLOY-PACK
-Defines deployment sequence for Azure + Homestead. Provides AKS manifests, Helm charts, and Azure Policy baseline.
+### L7-PACK-v9.2
+Corpus Layer
+Corpus synthesis, coherence floors, drift ceilings.
 
-INFRA-RUNTIME-PACK
-Defines runtime expansion rules, scaling behavior, and temporal alignment for infrastructure components.
+### UC-PACK-v9.2
+Unified Coherence Layer
+Apex synthesis, coherence unification, final emission authority.
 
-KERNEL-PACK
-Defines substrate identity, primitive bindings, and foundational architecture rules. Establishes KIG, EDM, CDIA, RIL, ATS, AAG, and SIL primitive set.
+------------------------------------------------------------
+## 2. Kernel and Governance PACKs
+------------------------------------------------------------
 
-L1-PACK (Meta-Substrate Layer)
-Defines identity substrate, primitive initialization, and Binding Chain anchor. Establishes structural identity foundation.
+### REID-KERNEL-PACK-v9.3
+Kernel primitives, SIL-v9.3, fallback convergence guarantees.
 
-L2-PACK (Cognitive Layer)
-Defines cognitive structure, contextual weighting, and reasoning depth. Provides cognitive architecture boundaries.
+### REID-THEGODFATHER-PACK-v9.2
+Integration governor, apex routing, authority lock.
 
-L3-PACK (Requirements Layer)
-Defines system requirements, constraints, invariants, and compliance rules. Provides architectural requirement enforcement.
+### REID-CL-PACK-v9.2
+Cross-layer governance, GF-class definitions, safety envelope.
 
-L4-PACK (Integration and Coordination Layer)
-Defines routing, coordination, multi-agent interaction rules, and integration topology. Provides cross-agent coherence.
+------------------------------------------------------------
+## 3. Temporal and Epoch PACKs
+------------------------------------------------------------
 
-L5-PACK (Governance and Integrity Layer)
-Defines governance rules, integrity enforcement, safety boundaries, and invariant protection. Provides governance envelope.
+### REID-T-PACK-v9.3
+Temporal physics, epoch monotonicity, ATS-v9.3 ledger.
 
-L6-PACK (Validation Layer)
-Defines validation gates, drift/coherence evaluation, epoch alignment checks, and PACK integrity verification.
+### ATS-ORDER-v9.3
+Deterministic ordering, reconciliation, convergence guarantees.
 
-L7-PACK (Corpus Layer)
-Defines authoritative corpus, configuration state, and synthesis boundaries. Provides corpus-level identity and coherence.
+------------------------------------------------------------
+## 4. API and Interface PACKs
+------------------------------------------------------------
 
-PROFILE-PACK
-Defines identity context for individuals, identity continuity, and personal corpus boundaries.
+### REID-API-MAP-PACK-v9.3
+External API surfaces, classification, latency ceilings, SIL-lock rules.
 
-T-PACK (Temporal Layer)
-Defines epoch propagation, temporal consistency, ledger entries, and temporal drift ceilings.
+### REID-PROFILE-PACK-v9.2
+Identity context, family profiles, visibility rules.
 
-THEGODFATHER-PACK
-Defines integration governor, choke-point control, apex routing, and PACK-level override protection. Ensures safe ingress/egress control.
+### REID-HOME-OS-PACK-v9.2
+Home operating system architecture, subsystem routing.
 
-UC-PACK (Unified Coherence Layer)
-Defines apex coherence enforcement, global coherence floors, and cross-layer synthesis rules. Provides unified coherence authority.
+------------------------------------------------------------
+## 5. Infrastructure PACKs
+------------------------------------------------------------
 
-PACK Authority Levels
+### REID-INFRA-PACK-v9.2
+Infrastructure build plan, Azure + Homestead.
 
-Primary Authority PACKs
-• KERNEL-PACK
-• UC-PACK
-• CL-PACK
-• THEGODFATHER-PACK
+### REID-INFRA-DEPLOY-PACK-v9.2
+Deployment sequencing, cluster definitions, sidecar topology.
 
-Secondary Authority PACKs
-• L1-PACK through L7-PACK
-• T-PACK
-• IC-PACK
+### REID-INFRA-RUNTIME-PACK-v9.2
+Runtime expansion, scaling rules, homestead integration.
 
-Integration Authority PACKs
-• API-MAP-PACK
-• INFRA-PACK
-• INFRA-RUNTIME-PACK
-• INFRA-DEPLOY-PACK
-• HOMESTEAD-PACK
-• HOME-OS-PACK
-• PROFILE-PACK
+### REID-HOMESTEAD-PACK-v9.2
+Homestead architecture, local substrate, edge-node rules.
 
-PACK Sequencing (Binding Chain)
-L1 → IC → L2 → L3 → L4 → L5 → L6 → L7 → T → UC → CL → API-MAP → INFRA
+------------------------------------------------------------
+## 6. Schema Appendices (v9.3)
+------------------------------------------------------------
 
-Summary
-This PACK Index provides a complete directory of all REID v9.3 PACKs, their roles, authority levels, and Binding Chain sequence. It is required for enterprise evaluation, integration, and licensing.
+### Appendix A - Protobuf Schema Map v9.3
+Authoritative field-ID definitions for SIL-v9.3, AAG-v9.3, ATS-v9.3, Binding Chain.
 
-End of PACK Index
+### Appendix B - OpenAPI Schema Map v9.3
+OpenAPI 3.1 schema definitions for all external REID v9.3 surfaces.
+
+------------------------------------------------------------
+## 7. Supporting Documents
+------------------------------------------------------------
+
+### PACK-INDEX-v9.3
+This document.
+
+### RELEASE-NOTES-v9.3
+Full change log from v9.2 to v9.3.
+
+### ORIGIN-STORY.md
+Historical lineage and conceptual evolution.
+
+### EPOCH-093.md
+Epoch declaration, epoch physics, temporal anchor.
+
+### CONFORMANCE.md
+Implementation requirements and compliance rules.
+
+------------------------------------------------------------
+End of PACK INDEX v9.3
