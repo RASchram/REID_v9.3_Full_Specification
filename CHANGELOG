@@ -1,0 +1,108 @@
+# REID v9.3 Changelog
+Consolidated Engineering Edition
+
+This changelog documents all notable changes to the REID architecture
+from version v9.2 to v9.3. Entries are listed in chronological order
+and grouped by category for clarity.
+
+============================================================
+## Version 9.3 (2026-10-11)
+============================================================
+
+### Major Additions
+- Added SIL-v9.3 (Synthesis Integrity Lock) as a Kernel primitive.
+- Added deterministic fallback convergence rules.
+- Added ATS-v9.3 packet ordering and temporal ledger rules.
+- Added latency ceilings to API-MAP-PACK.
+- Added formal schema appendices (Protobuf and OpenAPI).
+- Added PACK-INDEX-v9.3.
+- Added CONFORMANCE.md.
+- Added SECURITY.md.
+- Added CONTRIBUTING.md.
+- Added CODEOWNERS.
+
+### Governance and Safety
+- Introduced SIL-state enforcement for all corpus-carrying emissions.
+- Updated AAG-v9.3 directive routing and enforcement.
+- Added GF-CLASS-1 triggers for epoch regression and SIL mismatch.
+- Added governance envelope clarifications in CL-PACK.
+
+### Temporal and Epoch
+- Added Epoch 093 declaration.
+- Added strict epoch monotonicity rules.
+- Added ATS ordering reconciliation and gap detection.
+- Added temporal drift ceiling (<= 0.01).
+
+### Drift and Coherence
+- Lowered corpus drift ceiling from <= 0.12 to <= 0.10.
+- Lowered cross-domain drift ceiling from <= 0.04 to <= 0.03.
+- Added infrastructure coherence floor (>= 0.92).
+- Added temporal coherence floor (>= 0.90).
+
+### PACK Updates
+- Updated L1-PACK-v9.3 with substrate invariants.
+- Updated L2-PACK-v9.3 with recursion limit (delta_limit).
+- Updated L3-PACK-v9.3 with coherence enforcement rules.
+- Updated L4-PACK-v9.3 with Binding Chain routing.
+- Updated L5-PACK-v9.3 with governance envelope refinements.
+- Updated T-PACK-v9.3 with epoch physics and ATS integration.
+- Updated API-MAP-PACK-v9.3 with latency ceilings and SIL-lock rules.
+
+### Schemas
+- Added authoritative field-ID definitions for SIL-v9.3.
+- Added authoritative field-ID definitions for AAG-v9.3.
+- Added ATS-v9.3 schema alignment.
+- Added Binding Chain schema definitions.
+- Added OpenAPI 3.1 schema maps.
+
+### Infrastructure
+- Updated Azure + Homestead deployment templates.
+- Added SIL registry deployment.
+- Added drift telemetry deployment.
+- Added AAG sidecar deployment.
+
+### Documentation
+- Added Origin Story.
+- Added Epoch 093.
+- Added PACK Index.
+- Added Release Notes.
+- Added Conformance Specification.
+- Added Security Policy.
+- Added Contribution Guide.
+- Added Codeowners file.
+- Updated README.md with full repository structure.
+
+============================================================
+## Version 9.2 (2026-10-06)
+============================================================
+
+### Summary
+- Introduced PACK suite structure.
+- Added governance envelopes.
+- Added initial drift and coherence physics.
+- Added early temporal rules.
+- Added infrastructure PACKs.
+- Added UC-PACK and CL-PACK.
+- Added API-MAP-PACK v9.2.
+
+============================================================
+## Version 9.1 (2026-10-03)
+============================================================
+
+### Summary
+- Introduced IC-PACK.
+- Added implicit cognition rules.
+- Added early epoch validation logic.
+
+============================================================
+## Version 9.0 (2026-09)
+============================================================
+
+### Summary
+- Initial formalization of REID architecture.
+- Early Binding Chain definition.
+- Early drift physics.
+- Early coherence rules.
+
+============================================================
+End of Changelog

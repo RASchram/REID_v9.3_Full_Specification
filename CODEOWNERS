@@ -1,0 +1,34 @@
+# CODEOWNERS
+# REID v9.3 — Relational Emergent Identity Dynamics
+# Consolidated Engineering Edition
+
+# This file defines ownership and review responsibility for all files
+# in the REID v9.3 repository. All changes to PACKs, schemas, governance
+# rules, temporal physics, or licensing boundaries require approval
+# from the designated owner.
+
+# Global Owner
+*       @Pappy
+
+# PACK Specifications
+packs/  @Pappy
+
+# Documentation
+docs/   @Pappy
+
+# Governance and Licensing
+governance/   @Pappy
+
+# Schemas (Protobuf and OpenAPI)
+schemas/      @Pappy
+
+# Diagrams
+diagrams/     @Pappy
+
+# Deployment Templates
+deploy/       @Pappy
+
+# Root Files
+README.md     @Pappy
+LICENSE       @Pappy
+CHANGELOG.md  @Pappy
