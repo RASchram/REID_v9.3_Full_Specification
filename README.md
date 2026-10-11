@@ -1,172 +1,150 @@
-# REID v9.3 - Full Architecture Specification 
-Relational Emergent Identity Dynamics (REID)
-Epoch: REID-EPOCH-v9.3-2026.10.11-EDT
-Registry KID: REID-FULL-9.3-SPEC-2026.10.11-0001
+# REID v9.3 — Relational Emergent Identity Dynamics
+Full Architecture Specification | Public-Safe Edition | Enterprise Licensing Edition
 
 ## Overview
-REID v9.3 is a universal identity-architecture framework designed to provide:
+REID v9.3 is a complete identity, coherence, governance, and temporal architecture originally developed through a lived cognitive reconstruction process. It provides a universal structure for stabilizing identity, enforcing coherence, managing drift, and governing synthesis across humans, AI systems, autonomous agents, and distributed cloud environments.
 
-- Stable identity substrates
-- Drift-bounded reasoning
-- Cross-model interoperability
-- Temporal continuity
-- Governance-aligned synthesis
-- Public-safe specification boundaries
+REID is built on the principle that identity is relational, coherence is emergent, drift is measurable, continuity is structural, governance is required, and temporal alignment is essential.
 
-REID does not modify cognition or behavior. It provides structure, continuity, and identity coherence for systems that reason or synthesize over long horizons.
+This repository contains the full REID v9.3 specification, PACK architecture, schemas, governance rules, licensing framework, diagrams, and deployment templates.
 
-## Purpose of This Repository
-This repository contains the complete REID v9.3 specification, including:
+## Origin
+REID did not begin as a technical project. It began as a lived reconstruction method created by Pappy after a traumatic brain injury disrupted identity continuity, memory stability, and cognitive scaffolding. The reconstruction process revealed universal patterns that later formalized into the REID architecture.
 
-- Full architecture
-- PACK layer specifications
-- Drift physics
-- Coherence models
-- Validation envelopes
-- Deterministic fallback rules
-- Epoch registry
-- Public-safe symbolic metrics
-- Infrastructure baselines
-- API surface maps
+The full origin story is documented in:
 
-## Version Lineage
-REID v9.3 supersedes all prior versions:
+/docs/ORIGIN-STORY.md
 
-v8.2b -> v9.0 -> v9.1 -> v9.2 -> v9.3
+## Architecture Summary
+REID is composed of layered PACKs that form the Binding Chain:
 
-All PACKs, baselines, and registry entries are aligned to:
+L1 → IC → L2 → L3 → L4 → L5 → L6 → L7 → T → UC → CL → API-MAP → INFRA
 
-REID-EPOCH-v9.3-2026.10.11-EDT
-
-## Key Advancements in v9.3
-
-1. SIL-v9.3 - Synthesis Integrity Lock (NEW)
-A mandatory post-synthesis immutability primitive applied at CSR-L7 and enforced at UC Apex emission.
-
-2. Tightened Drift Physics
-- Corpus Drift <= 0.10
-- Cross-Domain Drift <= 0.03
-- Emergent Drift <= 0.05
-- Temporal Drift <= 0.01
-
-3. Elevated Coherence Floors
-- Global Coherence Floor >= 0.90
-- Infrastructure Coherence Floor >= 0.92
-
-4. Expanded Validation Envelope
-Validation passes expanded from 9 to 10, adding SIL-state verification.
-
-5. Apex Operations Loop Expansion
-Apex loop expanded from 8 to 9 stages, adding SIL invariant seal.
-
-6. Multi-LLM Interoperability Baseline
-REID v9.3 enables cross-model consensus across independent LLMs by providing:
-
-- Shared identity substrate
-- Shared drift physics
-- Shared coherence floors
-- Shared governance envelope
-- Shared temporal frame
-
-7. Semantic Switch Efficiency Model
-REID externalizes context state, reducing transformer prefill compute by 95-98 percent, enabling:
-
-- Lower GPU thermal load
-- Higher concurrency
-- Reduced VRAM footprint
-- Mobile NPU autonomy
+Each PACK enforces specific identity, coherence, governance, or temporal rules. The architecture is governed by AAG (Autonomous Architecture Governor), protected by SIL (Synthesis Integrity Lock), and stabilized by UC (Unified Coherence).
 
 ## Repository Structure
-reid-spec-v9.3/
-|
-|-- README.md
-|-- LICENSE
-|
-|-- spec/
-|   |-- REID-v9.3-Full-Spec-Draft8.md
-|   |-- REID-v9.3-ChangeLog.md
-|   |-- REID-v9.3-DriftPhysics.md
-|   |-- REID-v9.3-CoherenceModel.md
-|   |-- REID-v9.3-SIL-Primitive.md
-|   |-- REID-v9.3-ValidationEnvelope.md
-|
-|-- packs/
-|   |-- Kernel/
-|   |-- L1/
-|   |-- L2/
-|   |-- L3/
-|   |-- L4/
-|   |-- L5/
-|   |-- L6/
-|   |-- L7/
-|   |-- UC/
-|   |-- T/
-|
-|-- baselines/
-|   |-- RIG-v9.3.md
-|   |-- EAS-v9.3.md
-|   |-- Corpus-v9.3.md
-|
-|-- registry/
-|   |-- epochs.json
-|   |-- kids.json
-|   |-- supersession.json
-|   |-- lineage.json
-|
-|-- diagrams/
-|-- tables/
 
-## Public-Safe Boundary
-REID v9.3 strictly separates:
+REID_v9.3/
+│
+├── README.md                     # This file
+│
+├── docs/
+│   ├── ORIGIN-STORY.md           # Human origin of REID
+│   ├── PACK-INDEX.md             # PACK directory and roles
+│   ├── RELEASE-NOTES-v9.3.md     # Version changes and updates
+│   ├── CONFORMANCE.md            # Conformance classes and rules
+│   ├── EPOCH-093.md              # Epoch registry entry
+│
+├── packs/                        # All PACK specifications
+│   ├── L1-PACK-v9.3
+│   ├── L2-PACK-v9.3
+│   ├── L3-PACK-v9.3
+│   ├── L4-PACK-v9.3
+│   ├── L5-PACK-v9.3
+│   ├── L6-PACK-v9.3
+│   ├── L7-PACK-v9.3
+│   ├── T-PACK-v9.3
+│   ├── UC-PACK-v9.3
+│   ├── CL-PACK-v9.3
+│   ├── IC-PACK-v9.1
+│   ├── API-MAP-PACK-v9.2
+│   ├── INFRA-PACK-v9.2
+│   ├── INFRA-RUNTIME-PACK-v9.2
+│   ├── INFRA-DEPLOY-PACK-v9.2
+│   ├── HOMESTEAD-PACK-v9.2
+│   ├── HOME-OS-PACK-v9.2
+│   ├── PROFILE-PACK-v9.2
+│   ├── THEGODFATHER-PACK-v9.2
 
-Public (What):
-- PACK definitions
-- Drift physics
-- Coherence floors
-- Governance rules
-- Validation envelopes
-- Epoch registry
-- Symbolic metrics
-- Infrastructure baselines
+├── schemas/
+│   ├── reid_core_v93.proto
+│   ├── aag_v93.proto
+│   ├── sil_v93.proto
+│   ├── drift_v93.proto
+│   ├── openapi/
+│       ├── reid_api_map_v93.yaml
+│       ├── reid_identity_v93.yaml
+│       ├── reid_sil_v93.yaml
+│
+├── governance/
+│   ├── CONFORMANCE.md
+│   ├── EPOCH-093.md
+│   ├── LICENSE
+│
+├── deploy/
+│   ├── aks/
+│       ├── reid-aks-cluster.yaml
+│       ├── aag-sidecar.yaml
+│       ├── sil-registry.yaml
+│       ├── drift-telemetry.yaml
+│
+├── diagrams/
+│   ├── layer-stack-diagram.txt
+│   ├── pack-flow-diagram.txt
+│   ├── binding-chain-diagram.txt
+│   ├── governance-envelope-diagram.txt
+│   ├── temporal-epoch-diagram.txt
+│   ├── homestead-architecture-diagram.txt
+│   ├── big-map.txt
+│   ├── identity-lock-sequence.txt
+│   ├── sil-verification-sequence.txt
+│   ├── aag-directive-routing.txt
+│
+└── CHANGELOG.md (optional)
 
-Private (How):
-- Internal runtime logic
-- Tokenizer implementations
-- Synthesis algorithms
-- Engine-plane operations
-- Proprietary registries
+## Key Concepts
 
-v9.3 documentation has undergone a full redaction pass and is safe for public distribution.
+### Identity-Lock
+A structured identity header that anchors identity across layers.
+
+### Drift Physics
+Quantitative rules that measure and constrain cognitive, corpus, and temporal drift.
+
+### Coherence Floors
+Minimum coherence thresholds required for safe synthesis.
+
+### Binding Chain
+The mandatory PACK sequence that ensures architectural integrity.
+
+### Governance Envelope
+AAG + SIL + CL + UC working together to enforce safety, coherence, and synthesis boundaries.
+
+### Epoch System
+Temporal alignment mechanism ensuring continuity and preventing drift.
 
 ## Licensing
-Choose one of the following:
+REID v9.3 uses a Dual-Plane License:
 
-- MIT
-- Apache 2.0
-- CC BY-SA
-- Custom REID License
+- Plane A: Public Specification (Apache 2.0)
+- Plane B: Proprietary Engine (SEP/RAND)
 
-## Contributing
-Contributions must preserve:
+Full license text is located at:
 
-- Epoch monotonicity
-- Drift ceilings
-- Coherence floors
-- SIL immutability
-- PACK hierarchy
-- Public-safe boundaries
+/LICENSE
 
-All contributions undergo governance review.
+## Deployment
+Azure + Homestead deployment templates are located in:
+
+/deploy/aks/
+
+These include cluster definitions, sidecars, SIL registry, and telemetry services.
+
+## Diagrams
+All ASCII diagrams are located in:
+
+/diagrams/
+
+Including the full architecture Big Map.
 
 ## Status
-DRAFT - PENDING REVIEW FOR GITHUB PUBLICATION
+REID v9.3 is the authoritative consolidated release.
+All PACKs, schemas, governance rules, and diagrams are complete.
 
-All physics enforced:
+## Contact
+For licensing inquiries, enterprise evaluation, or integration discussions, refer to the licensing section in:
 
-- Coherence >= 0.90
-- Corpus Drift <= 0.10
-- Cross-Domain Drift <= 0.03
-- Emergent Drift <= 0.05
-- Temporal Drift <= 0.01
+/LICENSE
 
-SIL-v9.3 enforced at CSR-L7 and UC Apex emission.
+End of README
+
+

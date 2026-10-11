@@ -1,0 +1,42 @@
+REID v9.3 — Governance Envelope Diagram
+---------------------------------------
+
+                 +---------------------------+
+                 |     Governance Envelope  |
+                 |  (AAG + SIL + CL + UC)   |
+                 +-------------+-------------+
+                               |
+                               v
++-------------------+   +-------------------+   +-------------------+
+|   AAG-v9.3        |   |   SIL-v9.3        |   |   CL-PACK         |
+| Architecture Gov. |   | Synthesis Lock    |   | Cross-Layer Rules |
++---------+---------+   +---------+---------+   +---------+---------+
+          \                     |                       /
+           \                    |                      /
+            \                   v                     /
+             \          +-------------------+        /
+              \         |   UC-PACK         |       /
+               \        | Unified Coherence |      /
+                \       +-------------------+     /
+                 \_______________________________/
+
+Directive Flow (AAG)
+
+   ALIGN-PASS
+   GOVERNANCE-HOLD
+   DFB-ENGAGE
+   TOPOLOGY-LOCK-ENFORCE
+   SIL-CO-ENFORCE
+   EPOCH-RESYNC
+   BASELINE-REAFFIRM
+
+Lock Flow (SIL)
+
+   UNLOCKED -> LOCKED -> QUARANTINE
+
+Envelope Effect
+
+- No corpus emission without SIL LOCKED
+- No apex synthesis without ALIGN-PASS
+- No PACK violation without GOVERNANCE-HOLD
+- No epoch mismatch without EPOCH-RESYNC

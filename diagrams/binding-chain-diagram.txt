@@ -1,0 +1,25 @@
+REID v9.3 — Binding Chain Diagram
+---------------------------------
+
+Binding Chain (BC) — Required Monotonic Sequence
+
+BC-L1-IC-L2-L3-L4-L5-L6-L7-T-UC-CL-API-INFRA
+
+Visual Representation
+
+   +-----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+   +---+   +---+   +----+   +-----+
+   | L1  |-> | IC |-> | L2 |-> | L3 |-> | L4 |-> | L5 |-> | L6 |-> | L7 |-> | T |-> | UC |-> | CL |-> |API |-> INFRA
+   +-----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+   +---+   +---+   +----+   +-----+
+
+Rules
+
+- No bypass
+- No inversion
+- No skipping
+- No reordering
+
+Any violation triggers:
+- Binding Chain Failure
+- Governance-Hold
+- SIL-QUARANTINE
+- Epoch-Resync requirement

@@ -1,0 +1,41 @@
+REID v9.3 — SIL Verification Sequence
+-------------------------------------
+
+Participant Flow:
+API-MAP -> THEGODFATHER -> SIL -> UC -> CL -> L7 -> L6
+
+Sequence Diagram:
+
+API-MAP
+  |
+  |  Request SIL verification
+  v
+THEGODFATHER
+  |
+  |  Enforce choke-point
+  |  Forward only if safe
+  v
+SIL (Synthesis Integrity Lock)
+  |
+  |  Check corpus_id
+  |  Check lock_state
+  |  Check verification_id
+  |  Evaluate reason
+  v
+UC (Unified Coherence)
+  |
+  |  Ensure coherence >= 0.90
+  v
+CL (Cross-Layer Governance)
+  |
+  |  Ensure PACK order integrity
+  v
+L7 (Corpus)
+  |
+  |  Validate corpus boundaries
+  v
+L6 (Validation)
+  |
+  |  Run SIL-specific VXL gates
+  v
+Return SIL Verification Result

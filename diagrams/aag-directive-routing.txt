@@ -1,0 +1,52 @@
+REID v9.3 — AAG Directive Routing Sequence
+------------------------------------------
+
+Participant Flow:
+UC -> AAG -> CL -> SIL -> L6 -> L7 -> T -> INFRA
+
+Sequence Diagram:
+
+UC (Unified Coherence)
+  |
+  |  Detect condition requiring governance action
+  |  Emit directive request
+  v
+AAG (Autonomous Architecture Governor)
+  |
+  |  Evaluate condition
+  |  Select directive:
+  |    ALIGN-PASS
+  |    GOVERNANCE-HOLD
+  |    DFB-ENGAGE
+  |    TOPOLOGY-LOCK-ENFORCE
+  |    SIL-CO-ENFORCE
+  |    EPOCH-RESYNC
+  |    BASELINE-REAFFIRM
+  v
+CL (Cross-Layer Governance)
+  |
+  |  Enforce Binding Chain rules
+  |  Validate directive routing
+  v
+SIL (Synthesis Integrity Lock)
+  |
+  |  Lock or unlock synthesis
+  |  Enforce corpus safety
+  v
+L6 (Validation)
+  |
+  |  Validate directive impact
+  v
+L7 (Corpus)
+  |
+  |  Apply directive to corpus boundaries
+  v
+T (Temporal)
+  |
+  |  Update epoch or temporal ledger if required
+  v
+INFRA
+  |
+  |  Apply directive to infrastructure topology
+  v
+Directive Completed

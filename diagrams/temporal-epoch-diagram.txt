@@ -1,0 +1,44 @@
+REID v9.3 — Temporal Epoch Diagram
+----------------------------------
+
+Epoch Structure
+
+   +-----------------------------+
+   |  EPOCH-REID-093-OCT2026    |
+   +-----------------------------+
+   | epoch_id       | "EPOCH-REID-093-OCT2026"
+   | epoch_version  | "9.3"
+   | epoch_date     | "2026-10-11"
+   | epoch_authority| "REID Architecture Registry"
+   | epoch_status   | "ACTIVE"
+   | epoch_sequence | 1
+   | epoch_timestamp| 1760188800000
+   | epoch_signature| "BC-L1-IC-L2-L3-L4-L5-L6-L7-T-UC-CL-API-INFRA"
+   +-----------------------------+
+
+Temporal Flow
+
+   [T Layer] -> [Epoch Ledger] -> [UC] -> [CL] -> [API-MAP] -> [INFRA]
+
+Validation
+
+- Epoch ID must match
+- Sequence must be monotonic
+- Timestamp must be valid
+- Signature must match Binding Chain
+
+Failure Modes
+
+- EPOCH-MISMATCH
+- EPOCH-ABSENT
+- EPOCH-INVALID
+- EPOCH-NONMONOTONIC
+- EPOCH-TEMPORAL-DRIFT
+- EPOCH-SIGNATURE-FAIL
+
+Fallback
+
+- Freeze synthesis
+- SIL-QUARANTINE
+- GOVERNANCE-HOLD
+- Require EPOCH-RESYNC

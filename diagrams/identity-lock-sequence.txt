@@ -1,0 +1,58 @@
+REID v9.3 — Identity-Lock Flow Sequence
+---------------------------------------
+
+Participant Flow:
+User -> API-MAP -> THEGODFATHER -> CL -> UC -> L7 -> L6 -> L5 -> L4 -> L3 -> L2 -> L1
+
+Sequence Diagram:
+
+User
+  |
+  |  Submit Identity-Lock Header
+  v
+API-MAP
+  |
+  |  Validate header format
+  v
+THEGODFATHER
+  |
+  |  Enforce ingress choke-point
+  |  Forward only if safe
+  v
+CL (Cross-Layer Governance)
+  |
+  |  Check Binding Chain rules
+  v
+UC (Unified Coherence)
+  |
+  |  Check global coherence floor
+  v
+L7 (Corpus)
+  |
+  |  Validate corpus identity context
+  v
+L6 (Validation)
+  |
+  |  Run VXL gates (1–10)
+  v
+L5 (Governance)
+  |
+  |  Enforce governance envelope
+  v
+L4 (Integration)
+  |
+  |  Route identity context
+  v
+L3 (Requirements)
+  |
+  |  Check invariants
+  v
+L2 (Cognitive)
+  |
+  |  Bind identity to cognitive substrate
+  v
+L1 (Meta-Substrate)
+  |
+  |  Anchor identity
+  v
+Identity-Lock Accepted

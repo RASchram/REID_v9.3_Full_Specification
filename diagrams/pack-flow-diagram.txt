@@ -1,0 +1,53 @@
+REID v9.3 — PACK Flow Diagram
+-----------------------------
+
+Core PACK Flow (Binding Chain)
+
+   [L1] Meta-Substrate
+        |
+        v
+   [IC] Implicit Cognition
+        |
+        v
+   [L2] Cognitive
+        |
+        v
+   [L3] Requirements
+        |
+        v
+   [L4] Integration & Coordination
+        |
+        v
+   [L5] Governance & Integrity
+        |
+        v
+   [L6] Validation
+        |
+        v
+   [L7] Corpus
+        |
+        v
+   [T]  Temporal
+        |
+        v
+   [UC] Unified Coherence
+        |
+        v
+   [CL] Cross-Layer Governance
+        |
+        v
+   [API-MAP] External Surface
+        |
+        v
+   [INFRA] Infrastructure
+
+Side Flows
+
+PROFILE-PACK:
+   Identity Context -> L2/L3/L5/L7
+
+THEGODFATHER-PACK:
+   Ingress/Egress -> UC/CL/API-MAP/INFRA
+
+HOMESTEAD-PACK:
+   Offline Edge -> L4/L5/L6/L7/T/UC

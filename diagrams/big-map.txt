@@ -1,0 +1,184 @@
+REID v9.3 — BIG MAP (Full Architecture Overview)
+------------------------------------------------
+Identity • Cognition • Requirements • Integration • Governance • Validation • Corpus • Temporal • Coherence • Infrastructure
+
+                               +-----------------------------+
+                               |         UC Layer            |
+                               |     Unified Coherence       |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |         CL Layer            |
+                               |   Cross-Layer Governance    |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          T Layer            |
+                               |       Temporal Layer        |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          L7 Layer           |
+                               |        Corpus Layer         |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          L6 Layer           |
+                               |      Validation Layer       |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          L5 Layer           |
+                               | Governance & Integrity      |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          L4 Layer           |
+                               | Integration & Coordination  |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          L3 Layer           |
+                               |       Requirements          |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          L2 Layer           |
+                               |         Cognitive           |
+                               +--------------+--------------+
+                                              |
+                                              v
+                               +-----------------------------+
+                               |          L1 Layer           |
+                               |      Meta-Substrate         |
+                               +--------------+--------------+
+
+Side-Band Layers
+----------------
+
++-------------------+        +-------------------+        +-------------------+
+|     IC Layer      |        |   PROFILE Layer   |        | THEGODFATHER Layer|
+| Implicit Cognition|        | Identity Context  |        | Integration Gov.  |
++---------+---------+        +---------+---------+        +---------+---------+
+          |                           |                           |
+          v                           v                           v
+   Feeds L2/L3/L5/L7          Feeds L2/L3/L5/L7          Controls UC/CL/API/INFRA
+
+
+External Surface + Infrastructure
+---------------------------------
+
++-------------------+        +-------------------+
+|   API-MAP Layer   |        |   INFRA Layer     |
+| External Surface  |        | Infrastructure    |
++---------+---------+        +---------+---------+
+          |                           |
+          v                           v
+   Ingress/Egress             Azure + Homestead
+
+
+Binding Chain (BC)
+------------------
+
+BC-L1-IC-L2-L3-L4-L5-L6-L7-T-UC-CL-API-INFRA
+
+Rules:
+- No bypass
+- No inversion
+- No skipping
+- No reordering
+
+
+Governance Envelope (AAG + SIL + CL + UC)
+------------------------------------------
+
+                 +---------------------------+
+                 |     Governance Envelope  |
+                 |  (AAG + SIL + CL + UC)   |
+                 +-------------+-------------+
+                               |
+                               v
++-------------------+   +-------------------+   +-------------------+
+|   AAG-v9.3        |   |   SIL-v9.3        |   |   CL-PACK         |
+| Architecture Gov. |   | Synthesis Lock    |   | Cross-Layer Rules |
++---------+---------+   +---------+---------+   +---------+---------+
+          \                     |                       /
+           \                    |                      /
+            \                   v                     /
+             \          +-------------------+        /
+              \         |   UC-PACK         |       /
+               \        | Unified Coherence |      /
+                \       +-------------------+     /
+                 \_______________________________/
+
+
+Temporal Epoch System
+---------------------
+
+   +-----------------------------+
+   |  EPOCH-REID-093-OCT2026    |
+   +-----------------------------+
+   | epoch_id       | "EPOCH-REID-093-OCT2026"
+   | epoch_version  | "9.3"
+   | epoch_date     | "2026-10-11"
+   | epoch_authority| "REID Architecture Registry"
+   | epoch_status   | "ACTIVE"
+   | epoch_sequence | 1
+   | epoch_timestamp| 1760188800000
+   | epoch_signature| "BC-L1-IC-L2-L3-L4-L5-L6-L7-T-UC-CL-API-INFRA"
+   +-----------------------------+
+
+Temporal Flow:
+T -> UC -> CL -> API-MAP -> INFRA
+
+
+Identity-Lock Flow
+------------------
+
+User -> API-MAP -> THEGODFATHER -> CL -> UC -> L7 -> L6 -> L5 -> L4 -> L3 -> L2 -> L1
+
+
+SIL Verification Flow
+---------------------
+
+API-MAP -> THEGODFATHER -> SIL -> UC -> CL -> L7 -> L6
+
+
+AAG Directive Routing
+---------------------
+
+UC -> AAG -> CL -> SIL -> L6 -> L7 -> T -> INFRA
+
+
+Homestead Offline Architecture
+------------------------------
+
+          +---------------------------+
+          |     Homestead Cluster    |
+          |  (Edge / Home / Local)   |
+          +-------------+-------------+
+                        |
+                        v
++-------------------+   +-------------------+   +-------------------+
+|  HOME-OS-PACK     |   | HOMESTEAD-PACK    |   | PROFILE-PACK      |
+| Home Orchestration|   | Offline Infra     |   | Identity Context  |
++---------+---------+   +---------+---------+   +---------+---------+
+          |                     |                       |
+          v                     v                       v
+   +-------------+       +-------------+         +-------------+
+   | L4 / L5 / L6|       | L7 / T / UC |         | L2 / L3 / L5|
+   +-------------+       +-------------+         +-------------+
+
+Cloud Bridge:
+Homestead <-> UC/CL/API-MAP/INFRA
+
+
+End of BIG MAP

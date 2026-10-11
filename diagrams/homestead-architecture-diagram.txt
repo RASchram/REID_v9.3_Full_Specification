@@ -1,0 +1,31 @@
+REID v9.3 — Homestead Architecture Diagram
+------------------------------------------
+
+Offline-Resilient Edge Environment
+
+          +---------------------------+
+          |     Homestead Cluster    |
+          |  (Edge / Home / Local)   |
+          +-------------+-------------+
+                        |
+                        v
++-------------------+   +-------------------+   +-------------------+
+|  HOME-OS-PACK     |   | HOMESTEAD-PACK    |   | PROFILE-PACK      |
+| Home Orchestration|   | Offline Infra     |   | Identity Context  |
++---------+---------+   +---------+---------+   +---------+---------+
+          |                     |                       |
+          v                     v                       v
+   +-------------+       +-------------+         +-------------+
+   | L4 / L5 / L6|       | L7 / T / UC |         | L2 / L3 / L5|
+   +-------------+       +-------------+         +-------------+
+
+Cloud Bridge (Optional)
+
+   Homestead <-> UC/CL/API-MAP/INFRA (Cloud)
+
+Rules
+
+- Homestead must maintain local coherence
+- Homestead must respect drift ceilings
+- Homestead must respect governance envelope
+- Homestead must resync epochs when connected
