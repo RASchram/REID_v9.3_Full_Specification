@@ -1,0 +1,36 @@
+apiVersion: azure.microsoft.com/v1
+kind: AKSCluster
+metadata:
+  name: reid-v93-cluster
+  version: "1.32"
+spec:
+  nodePools:
+    - name: reid-core
+      vmSize: Standard_D4_v5
+      count: 3
+      osType: Linux
+      mode: System
+
+    - name: reid-governance
+      vmSize: Standard_D4_v5
+      count: 2
+      osType: Linux
+      mode: User
+
+    - name: reid-telemetry
+      vmSize: Standard_D2_v5
+      count: 2
+      osType: Linux
+      mode: User
+
+  networkProfile:
+    networkPlugin: azure
+    networkPolicy: azure
+
+  addonProfiles:
+    azurePolicy:
+      enabled: true
+
+  tags:
+    reid-epoch: "REID-EPOCH-v9.3-2026.10.11-EDT"
+    reid-version: "v9.3"

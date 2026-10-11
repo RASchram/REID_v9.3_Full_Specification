@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package reid.v93.sil;
+
+// SIL-v9.3 — Synthesis Integrity Lock
+
+enum SILLockState {
+  SIL_UNKNOWN = 0;
+  SIL_UNLOCKED = 1;
+  SIL_LOCKED = 2;
+  SIL_QUARANTINE = 3;
+}
+
+message SILVerification {
+  string      verification_id = 1;
+  SILLockState lock_state     = 2;
+  string      corpus_id       = 3;  // e.g. "REID-L7-v9.3"
+  string      reason          = 4;
+  int64       verified_at     = 5;  // unix epoch millis
+}
+
+message SILState {
+  SILLockState current_state      = 1;
+  repeated SILVerification history = 2;
+}

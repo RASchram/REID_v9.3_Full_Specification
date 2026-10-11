@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: REID Identity API v9.3
+  version: 9.3
+  description: >
+    Identity verification and identity-lock header validation endpoints
+    for REID v9.3.
+
+servers:
+  - url: https://reid.example.com/v9.3
+
+paths:
+  /identity/verify:
+    post:
+      summary: Verify identity-lock header
+      operationId: verifyIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IdentityLockHeader"
+      responses:
+        "200":
+          description: Identity verified
+        "403":
+          description: Identity verification failed
+
+  /identity/context:
+    get:
+      summary: Retrieve identity context
+      operationId: getIdentityContext
+      responses:
+        "200":
+          description: Identity context
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IdentityContext"
+
+components:
+  schemas:
+    IdentityLockHeader:
+      type: object
+      properties:
+        framework: { type: string }
+        version: { type: string }
+        epoch: { type: string }
+        registry_kid: { type: string }
+        layer: { type: string }
+        authority: { type: string }
+        override: { type: string }
+
+    IdentityContext:
+      type: object
+      properties:
+        identity_id: { type: string }
+        corpus_id: { type: string }
+        coherence_score: { type: number }
+        drift_score: { type: number }
+        last_verified: { type: integer }

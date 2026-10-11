@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package reid.v93.drift;
+
+// EDM-v9.3 — Epoch Drift Model
+
+message DriftThresholds {
+  double corpus_drift_ceiling       = 1;  // default 0.10
+  double cross_domain_drift_ceiling = 2;  // default 0.03
+  double emergent_drift_ceiling     = 3;  // default 0.05
+  double temporal_drift_ceiling     = 4;  // default 0.01;
+}
+
+message CoherenceFloors {
+  double identity_coherence_floor   = 1;  // default 0.93
+  double behavioral_coherence_floor = 2;  // default 0.93
+  double corpus_coherence_floor     = 3;  // default 0.90
+  double temporal_coherence_floor   = 4;  // default 0.90;
+}
+
+message DriftEvaluation {
+  DriftThresholds thresholds = 1;
+  CoherenceFloors floors     = 2;
+  bool            within_bounds = 3;
+  string          reason        = 4;
+}

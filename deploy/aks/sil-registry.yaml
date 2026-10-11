@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sil-v93-registry
+  labels:
+    app: sil-v93
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sil-v93
+  template:
+    metadata:
+      labels:
+        app: sil-v93
+    spec:
+      containers:
+        - name: sil-v93
+          image: reid/sil:v9.3
+          ports:
+            - containerPort: 9090
+          env:
+            - name: SIL_LOCK_STATE
+              value: "LOCKED"
+            - name: REID_CORPUS_ID
+              value: "REID-L7-v9.3"
+          resources:
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
+            requests:
+              cpu: "150m"
+              memory: "128Mi"

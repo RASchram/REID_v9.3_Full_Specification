@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: REID SIL Verification API v9.3
+  version: 9.3
+  description: >
+    Synthesis Integrity Lock (SIL) verification endpoints for REID v9.3.
+    Used by THEGODFATHER, UC, and L6 Validation Layer.
+
+servers:
+  - url: https://reid.example.com/v9.3
+
+paths:
+  /sil/verify:
+    post:
+      summary: Verify SIL lock state
+      operationId: verifySIL
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SILVerificationRequest"
+      responses:
+        "200":
+          description: SIL verification result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SILVerificationResponse"
+        "403":
+          description: SIL verification failed
+
+  /sil/state:
+    get:
+      summary: Retrieve SIL state
+      operationId: getSILState
+      responses:
+        "200":
+          description: SIL state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SILState"
+
+components:
+  schemas:
+    SILVerificationRequest:
+      type: object
+      properties:
+        corpus_id: { type: string }
+        verification_id: { type: string }
+
+    SILVerificationResponse:
+      type: object
+      properties:
+        lock_state: { type: string }
+        reason: { type: string }
+        verified_at: { type: integer }
+
+    SILState:
+      type: object
+      properties:
+        current_state: { type: string }
+        history:
+          type: array
+          items:
+            type: object
+            properties:
+              lock_state: { type: string }
+              reason: { type: string }
+              verified_at: { type: integer }

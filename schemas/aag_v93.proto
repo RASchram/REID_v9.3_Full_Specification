@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package reid.v93.aag;
+
+// AAG-v9.3 — Autonomous Architecture Governor
+
+enum AAGDirectiveType {
+  ALIGN_PASS              = 0;
+  GOVERNANCE_HOLD         = 1;
+  DFB_ENGAGE              = 2;
+  TOPOLOGY_LOCK_ENFORCE   = 3;
+  SIL_CO_ENFORCE          = 4;
+  EPOCH_RESYNC            = 5;
+  BASELINE_REAFFIRM       = 6;
+}
+
+message AAGDirective {
+  string           directive_id   = 1;
+  AAGDirectiveType type          = 2;
+  string           source_layer  = 3;  // e.g. "UC", "CL", "THEGODFATHER"
+  string           target_layer  = 4;  // e.g. "L7", "INFRA"
+  string           reason        = 5;
+  int64            issued_at     = 6;  // unix epoch millis
+}
+
+message AAGState {
+  repeated AAGDirective active_directives = 1;
+}

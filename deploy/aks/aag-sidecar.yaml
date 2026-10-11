@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aag-v93-sidecar
+  labels:
+    app: aag-v93
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aag-v93
+  template:
+    metadata:
+      labels:
+        app: aag-v93
+    spec:
+      containers:
+        - name: aag-v93
+          image: reid/aag:v9.3
+          ports:
+            - containerPort: 8080
+          env:
+            - name: REID_EPOCH
+              value: "REID-EPOCH-v9.3-2026.10.11-EDT"
+            - name: AAG_DIRECTIVE_CHANNEL
+              value: "primary"
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package reid.v93.core;
+
+// REID v9.3 Core Wire Schema
+// Identity-lock header + core telemetry
+
+message IdentityLockHeader {
+  string framework    = 1;  // "REID"
+  string version      = 2;  // "v9.3"
+  string epoch        = 3;  // e.g. "REID-EPOCH-v9.3-2026.10.11-EDT"
+  string registry_kid = 4;  // PACK-specific KID
+  string layer        = 5;  // e.g. "L7", "UC", "THEGODFATHER"
+  string authority    = 6;  // e.g. "INTEGRATION-PRIMARY"
+  string override     = 7;  // usually "NULL"
+}
+
+message DriftTelemetry {
+  double corpus_drift      = 1;  // 0.0–1.0
+  double cross_domain_drift= 2;  // 0.0–1.0
+  double emergent_drift    = 3;  // 0.0–1.0
+  double temporal_drift    = 4;  // 0.0–1.0
+}
+
+message CoherenceTelemetry {
+  double identity_coherence   = 1;  // 0.0–1.0
+  double behavioral_coherence = 2;  // 0.0–1.0
+  double corpus_coherence     = 3;  // 0.0–1.0
+  double temporal_coherence   = 4;  // 0.0–1.0
+}
+
+message EpochState {
+  string epoch_id   = 1;  // e.g. "EPOCH-REID-093-OCT2026"
+  int64  sequence   = 2;  // monotonic counter
+  int64  timestamp  = 3;  // unix epoch millis
+}
+
+message CoreState {
+  IdentityLockHeader   header      = 1;
+  DriftTelemetry       drift       = 2;
+  CoherenceTelemetry   coherence   = 3;
+  EpochState           epoch_state = 4;
+}

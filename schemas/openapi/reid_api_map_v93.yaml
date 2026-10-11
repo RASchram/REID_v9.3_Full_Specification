@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: REID API-MAP v9.3
+  version: 9.3
+  description: >
+    External API surface for REID v9.3. Provides ingress/egress endpoints
+    for identity-lock headers, epoch queries, drift/coherence telemetry,
+    and governor routing.
+
+servers:
+  - url: https://reid.example.com/v9.3
+
+paths:
+  /identity-lock:
+    post:
+      summary: Submit identity-lock header
+      operationId: submitIdentityLock
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IdentityLockHeader"
+      responses:
+        "200":
+          description: Identity-lock accepted
+        "400":
+          description: Invalid identity-lock header
+
+  /telemetry/drift:
+    get:
+      summary: Retrieve drift telemetry
+      operationId: getDriftTelemetry
+      responses:
+        "200":
+          description: Drift telemetry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DriftTelemetry"
+
+  /telemetry/coherence:
+    get:
+      summary: Retrieve coherence telemetry
+      operationId: getCoherenceTelemetry
+      responses:
+        "200":
+          description: Coherence telemetry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CoherenceTelemetry"
+
+  /epoch:
+    get:
+      summary: Retrieve epoch state
+      operationId: getEpochState
+      responses:
+        "200":
+          description: Epoch state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EpochState"
+
+components:
+  schemas:
+    IdentityLockHeader:
+      type: object
+      properties:
+        framework: { type: string }
+        version: { type: string }
+        epoch: { type: string }
+        registry_kid: { type: string }
+        layer: { type: string }
+        authority: { type: string }
+        override: { type: string }
+
+    DriftTelemetry:
+      type: object
+      properties:
+        corpus_drift: { type: number }
+        cross_domain_drift: { type: number }
+        emergent_drift: { type: number }
+        temporal_drift: { type: number }
+
+    CoherenceTelemetry:
+      type: object
+      properties:
+        identity_coherence: { type: number }
+        behavioral_coherence: { type: number }
+        corpus_coherence: { type: number }
+        temporal_coherence: { type: number }
+
+    EpochState:
+      type: object
+      properties:
+        epoch_id: { type: string }
+        sequence: { type: integer }
+        timestamp: { type: integer }
