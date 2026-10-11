@@ -218,6 +218,115 @@ T-PACK v9.3 provides:
 - deterministic fallback  
 - apex-ready epoch relay  
 
+## 18. ATS v9.3 Packet Ordering Rules (ATS-ORDER-v93)
+
+ATS v9.3 provides deterministic ordering guarantees for all temporal, drift, and
+coherence telemetry packets emitted by multi-model fleets (Gemini, Claude, local
+NPUs, Homestead nodes, Home‑OS subsystems, Azure workloads). Packet ordering is
+required for epoch monotonicity, ledger integrity, and Binding Chain stability.
+
+### 18.1 Packet Structure Requirements
+
+All ATS packets MUST include:
+- epoch_id
+- epoch_sequence
+- timestamp_utc
+- model_id
+- td_score
+- tc_score
+- xdd_score
+- edd_score
+- sil_state
+- gf_code
+- emission_hash
+
+Packets missing any field SHALL be rejected and logged as GF‑CLASS‑1.
+
+### 18.2 Monotonic Ordering Rule
+
+ATS enforces strict monotonic ordering:
+
+For packets P(n) and P(n+1):
+
+epoch_sequence(n+1) > epoch_sequence(n)
+
+If epoch_sequence regresses or repeats:
+- packet is rejected
+- GF‑CLASS‑1 is emitted
+- AAG MAY trigger GOVERNANCE‑HOLD
+- T‑PACK MAY require EPOCH‑RESYNC
+
+### 18.3 Out‑of‑Order Packet Handling
+
+Asynchronous multi‑model telemetry may arrive out of order. ATS handles three cases:
+
+Case 1 — Late Packet (epoch_sequence < current):
+- reject packet
+- log GF‑CLASS‑1
+- no synthesis impact
+
+Case 2 — Early Packet (epoch_sequence > current):
+- buffer packet
+- wait up to 250 ms for missing sequence entries
+- if missing entries do not arrive, commit early packet and mark gap
+
+Case 3 — Gap Detected:
+- emit ATS‑GAP event
+- AAG MAY trigger EPOCH‑RESYNC
+- SIL MAY enter QUARANTINE if corpus‑carrying
+
+### 18.4 Multi‑Model Reconciliation
+
+When multiple models emit telemetry concurrently:
+
+ATS SHALL:
+- sort packets by epoch_sequence
+- validate monotonicity
+- merge drift/coherence values using weighted median
+- commit merged packet to ATS v9.3 ledger
+
+Weighted median prevents single‑model spikes from destabilizing temporal coherence.
+
+### 18.5 Ledger Commit Rules
+
+A packet is committed only if:
+- epoch_sequence is monotonic
+- timestamp_utc is valid
+- td_score ≤ 0.01
+- tc_score ≥ 0.90
+- sil_state ∈ {LOCKED, QUARANTINE}
+
+If any condition fails:
+- packet is rejected
+- GF‑CLASS‑1 is logged
+- AAG MAY trigger GOVERNANCE‑HOLD
+
+### 18.6 Convergence Guarantee
+
+ATS v9.3 SHALL always converge because:
+- epoch_sequence is strictly monotonic
+- gaps are bounded (≤ 250 ms)
+- reconciliation is deterministic
+- ledger commits are atomic
+- no packet can recurse or re‑emit
+
+Therefore:
+
+ATS recursion depth = 1  
+ATS ordering is deterministic  
+ATS ledger commits are guaranteed to converge
+
+### 18.7 Governance Integration
+
+All ATS ordering violations SHALL be surfaced to:
+- AAG‑v9.3
+- SIL‑v9.3
+- CL‑v9.3
+- UC‑v9.3
+
+End of Section 18.
+
+
 T-PACK v9.3 is required for all REID v9.3 workloads.
 
 End of REID-T-PACK-v9.3

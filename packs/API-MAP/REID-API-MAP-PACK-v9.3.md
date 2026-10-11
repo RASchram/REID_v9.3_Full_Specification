@@ -210,6 +210,81 @@ API-MAP-PACK v9.3 provides:
 - deterministic fallback  
 - ledger-backed API governance  
 
+## 13. Latency Budget Envelope (v9.3)
+
+All API-MAP surfaces in REID v9.3 operate under explicit latency ceilings to ensure
+Binding Chain integrity, governance responsiveness, and temporal alignment. These
+ceilings apply to all external API interactions, including identity, governance,
+corpus, temporal, and profile-scoped surfaces.
+
+### 13.1 Latency Ceilings (p95)
+
+AAG-v9.3 Directive Routing:
+- Ceiling: 15 ms (single-region)
+- Ceiling: 35 ms (multi-region)
+
+SIL-v9.3 Verification:
+- Ceiling: 20 ms (single-region)
+- Ceiling: 45 ms (multi-region)
+
+Binding Chain Traversal  
+(API-MAP → L4 → L6 → L7 → T → UC → CL → API-MAP):
+- Ceiling: 50 ms (single-region)
+- Ceiling: 90 ms (multi-region)
+
+End-to-End API-MAP Request  
+(ingress → THEGODFATHER → PACK traversal → response):
+- Ceiling: 150 ms (single-region)
+- Ceiling: 250 ms (multi-region)
+
+### 13.2 Latency Classes
+
+Class L0 — Local / Edge:
+- AAG + SIL + Binding Chain: ≤ 40 ms p95
+- End-to-End API-MAP: ≤ 120 ms p95
+
+Class L1 — Single-Region Cloud:
+- AAG + SIL + Binding Chain: ≤ 90 ms p95
+- End-to-End API-MAP: ≤ 200 ms p95
+
+Class L2 — Multi-Region / Global:
+- AAG + SIL + Binding Chain: ≤ 140 ms p95
+- End-to-End API-MAP: ≤ 300 ms p95
+
+Deployments MUST declare a latency class (L0, L1, or L2).  
+Persistent violations SHALL be treated as infrastructure drift.
+
+### 13.3 Governance Response to Latency Violations
+
+If latency ceilings are exceeded beyond declared class, API-MAP MUST emit drift/latency
+telemetry and MAY trigger:
+
+- AAG-v9.3 GOVERNANCE-HOLD  
+- DFB-API-v93 engagement  
+- SIL-v9.3 QUARANTINE (for corpus-carrying surfaces)  
+- ATS-v9.3 EPOCH-RESYNC  
+
+### 13.4 Epoch & Drift Physics Integration
+
+All latency ceilings are bound to epoch:
+
+REID-EPOCH-v9.3-2026.10.11-EDT
+
+Latency violations SHALL be recorded in ATS v9.3 with:
+- epoch_id  
+- drift scores  
+- coherence scores  
+- SIL-state  
+- gf_code  
+- aag_status  
+- emission_hash  
+
+Latency ceilings are part of the Binding Chain integrity envelope and MUST be enforced
+for all Class A, B, C, D, and E surfaces.
+
+End of Section 13.
+
+
 API-MAP-PACK v9.3 is required for all REID v9.3 workloads.
 
 End of REID-API-MAP-PACK-v9.3

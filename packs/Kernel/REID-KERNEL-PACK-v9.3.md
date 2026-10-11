@@ -144,6 +144,96 @@ The REID v9.3 Kernel Pack provides:
 - SIL integration
 - Apex emission protection
 
+## 11. Deterministic Fallback Convergence (v9.3)
+
+The REID v9.3 Kernel enforces strict convergence guarantees for all
+Deterministic Fallback (DFB) operations. DFB recursion SHALL NOT exceed
+declared depth limits and SHALL always terminate in a stable, non-infinite
+state. This section defines the formal convergence rules for Level 3 and
+Level 4 fallback operations.
+
+### 11.1 Recursion Depth Limit
+
+DFB recursion depth is bounded by:
+
+Depth(R) ≤ δ_limit
+
+Where:
+- δ_limit = 12 (RIL-v9.3)
+- R = active fallback recursion state
+
+Any attempt to exceed δ_limit SHALL trigger Kernel Override Halt (Level 4).
+
+### 11.2 Level 3 Convergence — KV-Cache Truncation
+
+Level 3 fallback performs deterministic KV-cache truncation:
+
+- All active KV segments are truncated to the last stable coherence floor.
+- No new KV segments may be allocated during Level 3.
+- Drift physics enforce CD ≤ 0.10 and XD ≤ 0.03.
+- Coherence floors enforce ≥ 0.90.
+
+Because KV-cache truncation reduces the active state space monotonically:
+
+State(n+1) < State(n)
+
+Level 3 fallback MUST converge within:
+
+n ≤ 3 truncation cycles
+
+If Level 3 fails to restore coherence within 3 cycles, Level 4 SHALL be invoked.
+
+### 11.3 Level 4 Convergence — Kernel Override Halt
+
+Level 4 fallback halts synthesis and forces a stable terminal state:
+
+- All synthesis operations are suspended.
+- All corpus emissions are blocked.
+- All drift/coherence values are frozen.
+- SIL-state is forced to QUARANTINE.
+- ATS-v9.3 records a terminal fallback event.
+
+Level 4 is a guaranteed convergence point because:
+
+∀ R, Level4(R) → Terminal_State
+
+No recursion is permitted beyond Level 4.
+
+### 11.4 Convergence Proof Summary
+
+Given:
+- Level 3 reduces state space monotonically.
+- Level 4 forces terminal halt.
+- δ_limit bounds recursion depth.
+
+Therefore:
+
+DFB recursion is guaranteed to converge:
+
+Depth(R) ≤ δ_limit  
+AND  
+Level3 → Level4 → Terminal_State
+
+No infinite recursion is possible within REID v9.3.
+
+### 11.5 Governance Integration
+
+All convergence events SHALL be surfaced to:
+
+- AAG-v9.3 (governance envelope)
+- SIL-v9.3 (synthesis lock)
+- ATS-v9.3 (temporal ledger)
+
+Convergence failures SHALL trigger:
+
+- GOVERNANCE-HOLD
+- EPOCH-RESYNC
+- SIL-QUARANTINE
+- Baseline reaffirmation
+
+End of Section 11.
+
+
 All PACKs depend on the Kernel Pack for identity stability and architectural consistency.
 
 End of REID-KERNEL-PACK-v9.3
